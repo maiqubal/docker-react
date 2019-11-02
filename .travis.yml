@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t maiqubal/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run maiqubal/docker-react npm run test -- --coverage
